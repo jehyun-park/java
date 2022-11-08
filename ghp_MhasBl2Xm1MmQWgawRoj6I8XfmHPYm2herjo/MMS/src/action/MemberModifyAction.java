@@ -27,7 +27,6 @@ public class MemberModifyAction implements Action {
 		else {
 			consoleUtil.printModifyFailMessage(memberId);
 		}
-		
 	}
 
 }

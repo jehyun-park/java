@@ -2,18 +2,17 @@ package action;
 
 import java.util.Scanner;
 
-
+import service.MemberRemoveService;
 import util.ConsoleUtil;
 
 public class MemberRemoveAction implements Action {
 
 	@Override
 	public void execute(Scanner scanner) throws Exception {
-		// TODO Auto-generated method stub
 		ConsoleUtil consoleUtil = new ConsoleUtil();
-		String memberId = consoleUtil.getMemberId("삭제할 회원아이디: ", scanner);
+		String memberId = consoleUtil.getMemberId("삭제할 회원아이디 : ", scanner);
 		
-		MemberRemoveService memberRemoveService = new MemberRemoveAction();
+		MemberRemoveService memberRemoveService = new MemberRemoveService();
 		
 		boolean removeSuccess = memberRemoveService.removeMemberVO(memberId);
 		
@@ -23,6 +22,7 @@ public class MemberRemoveAction implements Action {
 		else {
 			consoleUtil.printRemoveFailMessage(memberId);
 		}
+		
 	}
 
 }

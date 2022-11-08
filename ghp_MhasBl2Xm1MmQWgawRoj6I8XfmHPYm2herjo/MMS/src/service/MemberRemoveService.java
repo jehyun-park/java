@@ -4,19 +4,16 @@ import ui.MemberUI;
 
 public class MemberRemoveService {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public boolean removeMemberVO(String memberId) {
 		boolean removeSuccess = false;
-		for (int i = 0; i < MemberUI.memberList; i++) {
-			if(memberId.contentEquals(MemberUI.memberList.get(i)));
+		for (int i = 0; i < MemberUI.memberList.size(); i++) {
+			if(memberId.contentEquals(MemberUI.memberList.get(i).getMemberId())) {
 				MemberUI.memberList.remove(i);
-				removeSuccess = false;
+				removeSuccess = true;
 				break;
-			
+			}
 		}
-	
 		return removeSuccess;
 	}
-	
 
 }

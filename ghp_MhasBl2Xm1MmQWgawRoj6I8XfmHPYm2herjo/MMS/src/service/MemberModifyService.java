@@ -17,7 +17,6 @@ public class MemberModifyService {
 	}
 
 	public boolean modifyMemberVO(MemberVO newMemberVO) {
-		// TODO Auto-generated method stub
 		boolean modifySuccess = false;
 		for (int i = 0; i < MemberUI.memberList.size(); i++) {
 			if(MemberUI.memberList.get(i).getMemberId().contentEquals(newMemberVO.getMemberId())) {
@@ -25,10 +24,8 @@ public class MemberModifyService {
 				modifySuccess = true;
 				break;
 			}
-			
 		}
 		return modifySuccess;
 	}
 
-		
 }
