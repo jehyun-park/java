@@ -46,7 +46,7 @@ public class ConsoleUtil {
 	}
 
 	public void printMemberList(ArrayList<MemberVO> memberList) {
-		if(memberList.size() == 0) {
+		if(memberList == null || memberList.size() == 0) {
 			System.out.println("등록된 회원이 없습니다.");
 		}
 		else {

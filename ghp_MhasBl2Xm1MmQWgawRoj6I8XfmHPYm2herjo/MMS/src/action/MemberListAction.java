@@ -18,5 +18,5 @@ public class MemberListAction implements Action {
 		consoleUtil.printMemberList(memberList);
 		
 	}
-
+	
 }

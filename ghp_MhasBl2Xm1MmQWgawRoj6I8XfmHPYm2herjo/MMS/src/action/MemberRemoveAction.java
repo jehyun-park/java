@@ -22,7 +22,6 @@ public class MemberRemoveAction implements Action {
 		else {
 			consoleUtil.printRemoveFailMessage(memberId);
 		}
-		
 	}
 
 }

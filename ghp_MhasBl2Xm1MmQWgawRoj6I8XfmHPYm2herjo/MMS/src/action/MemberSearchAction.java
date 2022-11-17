@@ -24,6 +24,7 @@ public class MemberSearchAction implements Action {
 			ArrayList<MemberVO> searchedMemberList = searchService.searchByMemberGeneration(searchVO.getSearchValue());
 			consoleUtil.printSearchedMemberVO(searchedMemberList);
 		}
+		
 	}
 
 }
