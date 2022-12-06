@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#registFormArea{
+		width : 800px;
+		margin : auto;
+		border : 1px solid brown;
+	}	
+	h1{
+		text-align: center;
+		border-bottom: 3px double red;
+	}
+	table{
+		width : 780px;
+		text-align: center;
+	}
+	.td_left{
+		width : 200px;
+	}
+	.td_right{
+		width : 580px;
+	}
+</style>
+<script>
+	function checkId(){
+		var memberId = document.getElementById("memberId");
+		window.open("idCheck?memberId=" + memberId.value, "window1", "width=300, height=200");
+	}
+	
+	function checkPasswd(){
+		var passwd1 = document.getElementById("memberPasswd1");
+		var passwd2 = document.getElementById("memberPasswd2");
+		var errorMessage = document.getElementById("errorMessage")
+		
+		if(passwd1.value != passwd2.value){
+			errorMessage.innerHTML = "<font color = 'red'>invalid password!</font>";
+			passwd2.focus();
+			passwd2.select();
+		}
+	}
+	
+	function findzipCode(){
+		window.open("zipCodeSearch.jsp","window2","width=300, height=200");
+	}
+</script>
+</head>
+<body>
+	<section id = "registFormArea">
+		<h1>회원가입</h1>
+		<form action="memberRegist" name="myForm" method="POST">
+		<table>
+			<tr>
+				<td class = "td_left"><label for = "memberId">회원아이디 : </label></td>
+				<td class = "td_right">
+				<input type = "text" id = "memberId" name = "memberId"/>
+				<input type = "button" value = "아이디 중복체크" onclick = "checkId()"/>
+				</td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberName">회원이름 : </label></td>
+				<td class = "td_right"><input type = "text" id = "memberName" name = "memberName"/></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberAge">회원나이 : </label></td>
+				<td class = "td_right"><input type = "number" id = "memberAge" name = "memberAge" min="1" max="100"/></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "zipCode">회원 우편번호 : </label></td>
+				<td class = "td_right"><input type = "text" id = "zipCode" name = "zipCode" readonly = "readonly"/>
+				<input type = "button" value = "우편번호 검색" onclick = "findzipCode()"/></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberAddr1">회원 기본주소 : </label></td>
+				<td class = "td_right"><input type = "text" id = "memberAddr1" name = "memberAddr1" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberAddr2">회원 상세주소 : </label></td>
+				<td class = "td_right"><input type = "text" id = "memberAddr2" name = "memberAddr2" /></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberEmail">회원이메일 : </label></td>
+				<td class = "td_right"><input type = "text" id = "memberEmail" name = "memberEmail" /></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberGender">회원성별 : </label></td>
+				<td class = "td_right">
+				<input type = "radio" id = "memberGender1" name = "memberGender" value = "M" checked="checked" />남자
+				<input type = "radio" id = "memberGender2" name = "memberGender" value = "F" />여자
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberGeneration">회원나이대 : </label></td>
+				<td class = "td_right"><input type = "number" id = "memberGeneration" name = "memberGeneration" /></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberPasswd1">회원비밀번호 : </label></td>
+				<td class = "td_right"><input type = "password" id = "memberPasswd1" name = "memberPasswd1" /></td>
+			</tr>
+			<tr>
+				<td class = "td_left"><label for = "memberPasswd2">회원비밀번호 확인 :  : </label></td>
+				<td class = "td_right"><input type = "password" id = "memberPasswd2" name = "memberPasswd2" onBlur = "checkPasswd()" /></td>
+			</tr>
+			<tr>
+				<td colspan = "2">
+					<span id = "errorMessage"></span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan = "2" style = "text-align:center">
+					<input type = "submit" value = "회원가입"/>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</section>
+</body>
+</html>
