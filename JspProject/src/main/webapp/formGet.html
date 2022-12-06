@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	#inputArea{
+	width:300px;
+	height:200px;
+	margin:auto;
+	border: 1px solid red;
+	text-align:center;
+	}
+	h1{
+	text-align:center;
+	}
+	input[type = "submit"]{
+		margin-top: 10px;
+	}
+</style>
+</head>
+<body>
+
+<section id = "inputArea">
+<h1>색상선택</h1>
+	<form action="formGet.jsp" method = "GET">
+		<label for = "name">이름:</label>
+		<input type = "text" name = "name" id = "name"><br>
+		<label for = "name">색상:</label>
+		<select id = "color" name = "color">
+			<option>blue</option>
+			<option>red</option>
+			<option>orange</option>
+			<option>green</option>
+		</select>	
+		<br><input type = "submit" value = "선택">
+		
+	</form>
+
+</section>
+
+</body>
+</html>
