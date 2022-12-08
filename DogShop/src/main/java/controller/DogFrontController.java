@@ -16,6 +16,7 @@ import action.DogCartQtyDownAction;
 import action.DogCartQtyUpAction;
 import action.DogCartRemoveAction;
 import action.DogListAction;
+import action.DogRegistAction;
 import action.DogViewAction;
 import vo.ActionForward;
 
@@ -91,6 +92,14 @@ public class DogFrontController extends HttpServlet {
 		}
 		else if(command.contentEquals("/dogCartRemove.dog")) {
 			action = new DogCartRemoveAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.contentEquals("/dogRegist.dog")) {
+			action = new DogRegistAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

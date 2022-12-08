@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.DogVO;
@@ -105,5 +106,39 @@ public class DogDAO {
 		}
 		
 		return dogVO;
+	}
+
+	public int insertDog(DogVO dogVO) throws Exception {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement pstmt = null;
+		int insertCount = 0;
+		String sql = "INSERT INTO dog(dogId, dogKind, dogPrice, dogImage, dogCountry, dogHeight, dogWeight, dogContent, dogReadCount)"
+				+ "VALUES(dog_seq.nextval, ?,?,?,?,?,?,?,?)";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dogVO.getDogKind());
+			pstmt.setInt(2, dogVO.getDogPrice());
+			pstmt.setString(3, dogVO.getDogImage());
+			pstmt.setString(4, dogVO.getDogCountry());
+			pstmt.setInt(5, dogVO.getDogHeight());
+			pstmt.setInt(6, dogVO.getDogWeight());
+			pstmt.setString(7, dogVO.getDogContent());
+			pstmt.setInt(8, 0);
+			
+			
+			insertCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(pstmt);
+		}
+		
+
+		
+		return insertCount;
 	}
 }
